@@ -24,4 +24,7 @@ public class UsuarioService {
 	public List<Usuario> login(String correo, String pass){
 		return dao.login(correo, pass);
 	}
+	public Usuario login2(String correo, String pass){
+		return dao.login2(correo, pass);
+	}
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.proyecto.desarrollo.entity.LogIn;
 import com.proyecto.desarrollo.entity.Usuario;
 import com.proyecto.desarrollo.service.UsuarioService;
 
@@ -32,6 +33,13 @@ public class UsuarioController {
 	public List<Usuario> consulta(@PathVariable("correo") String correo,@PathVariable("pass") String pass){
 		return uService.login(correo, pass);
 	}
+	
+	@CrossOrigin(origins="http://localhost:4200")
+	@PostMapping("/login")
+	public Usuario logIn(@RequestBody LogIn bean){
+		return uService.login2(bean.correo, bean.pass);
+	}
+	
 	@PostMapping("/registrar")
 	public void registrar(@RequestBody Usuario bean) {
 		uService.registrar(bean);
