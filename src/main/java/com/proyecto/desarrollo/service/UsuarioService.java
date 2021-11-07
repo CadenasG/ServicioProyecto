@@ -21,10 +21,31 @@ public class UsuarioService {
 		return dao.findAll();
 	}
 	
-	public List<Usuario> login(String correo, String pass){
-		return dao.login(correo, pass);
+	public Usuario logIn(String correo, String pass){
+		return dao.logIn(correo, pass);
 	}
-	public Usuario login2(String correo, String pass){
-		return dao.login2(correo, pass);
+	
+	/*public void updateUsuario(
+			int cod_usuario,
+			String nom_usuario,
+			String ape_usuario,
+			String cor_usuario,
+			String con_usuario,
+			int dni_usuario,
+			int cod_tipo_usuario
+			) {
+		dao.updateUsuario(
+				nom_usuario,
+				ape_usuario,
+				cor_usuario,
+				con_usuario,
+				dni_usuario,
+				cod_tipo_usuario,
+				cod_usuario
+				);
+	}*/
+	
+	public void eliminarUsuario(Usuario bean) {
+		dao.eliminarUsuario(bean.getCod_usuario());
 	}
 }
